@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background: #121212;
-    color: #e0e0e0;
+    background: #e0e0e0;
+    color: #000000;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,10 +11,10 @@ body {
 }
 
 .quiz-container {
-    background: #1e1e1e;
+    background: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
 }
@@ -24,7 +24,7 @@ body {
     font-size: 20px;
     line-height: 1.5;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
 }
 
 .quiz-options {
@@ -38,44 +38,43 @@ body {
 
 .quiz-options input[type="checkbox"] {
     display: none;
-    /* Ẩn checkbox gốc */
 }
 
 .quiz-options label {
     display: block;
     padding: 15px;
     font-size: 16px;
-    background: #292929;
-    border: 2px solid #444444;
+    background: #f5f5dc;
+    border: 2px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
     user-select: none;
-    color: #e0e0e0;
+    color: #000000;
 }
 
 .quiz-options label:hover {
-    background: #333333;
+    background: #e8e4c9;
 }
 
 .quiz-options input[type="checkbox"]:checked+label {
-    background: #1e88e5;
-    border-color: #64b5f6;
-    box-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+    background: #add8e6;
+    border-color: #90caf9;
+    box-shadow: 0 0 10px rgba(144, 202, 249, 0.5);
     transform: scale(1.02);
-    color: #ffffff;
+    color: #000000;
 }
 
 .quiz-options label.correct {
-    background: #388e3c !important;
-    color: #ffffff;
+    background: #98fb98 !important;
+    color: #000000;
     border-color: #66bb6a;
 }
 
 .quiz-options label.incorrect {
-    background: #c62828 !important;
-    color: #ffffff;
-    border-color: #e57373;
+    background: #ffcccb !important;
+    color: #000000;
+    border-color: #ef9a9a;
 }
 
 .quiz-buttons {
@@ -88,20 +87,20 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background: #1e88e5;
-    color: white;
+    background: #90caf9;
+    color: #000000;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
 
 .quiz-buttons button.next:hover {
-    background: #1565c0;
+    background: #64b5f6;
     transform: scale(1.05);
 }
 
 .quiz-buttons button.next:disabled {
-    background: #555555;
+    background: #cccccc;
     cursor: not-allowed;
 }
 
@@ -113,24 +112,24 @@ body {
 .quiz-summary p {
     font-size: 18px;
     margin: 5px 0;
-    color: #ffffff;
+    color: #000000;
 }
 
 .upload-container {
     text-align: center;
     margin: auto;
     padding: 20px;
-    border: 2px dashed #444444;
+    border: 2px dashed #ccc;
     border-radius: 10px;
     width: 90%;
     max-width: 500px;
-    background: #1e1e1e;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .upload-container h1 {
     font-size: 24px;
-    color: #e0e0e0;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -139,7 +138,7 @@ body {
     padding: 15px 20px;
     font-size: 16px;
     color: #ffffff;
-    background-color: #1e88e5;
+    background-color: #90caf9;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -147,7 +146,7 @@ body {
 }
 
 .upload-label:hover {
-    background-color: #1565c0;
+    background-color: #64b5f6;
     transform: scale(1.05);
 }
 
@@ -157,8 +156,8 @@ body {
 
 .error-message {
     margin-top: 20px;
-    color: #ef5350;
-    background: #2b1a1a;
+    color: #c62828;
+    background: #fddede;
     padding: 10px 15px;
     border: 1px solid #d32f2f;
     border-radius: 5px;
@@ -168,7 +167,7 @@ body {
 
 .upload-container p {
     font-size: 14px;
-    color: #b0bec5;
+    color: #666666;
     margin-top: 15px;
 }
 
@@ -183,8 +182,8 @@ body {
 }
 
 #sound-toggle {
-    background-color: #555555;
-    color: white;
+    background-color: #cccccc;
+    color: #000000;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -193,5 +192,5 @@ body {
 }
 
 #sound-toggle:hover {
-    background-color: #0056b3;
+    background-color: #aaaaaa;
 }
