@@ -1,3 +1,6 @@
+const correctSound = new Audio("./assets/correct.m4a")
+const incorrectSound = new Audio("./assets/incorrect.m4a")
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -98,7 +101,10 @@ function checkSelection() {
         });
 
         if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(correctAnswers)) {
+            correctSound.play();
             score++;
+        } else {
+            incorrectSound.play();
         }
 
         document.querySelectorAll(".quiz-options input").forEach(input => {
