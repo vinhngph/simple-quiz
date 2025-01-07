@@ -1,7 +1,3 @@
-const correctSound = new Audio("./assets/correct.m4a");
-const incorrectSound = new Audio("./assets/incorrect.m4a");
-const doneSound = new Audio("./assets/done.mp3");
-
 let isSoundEnabled = true;
 
 document.getElementById("sound-toggle").addEventListener("click", function () {
@@ -9,10 +5,18 @@ document.getElementById("sound-toggle").addEventListener("click", function () {
     this.textContent = isSoundEnabled ? "🔊 Sound: ON" : "🔇 Sound: OFF";
 });
 
-function playSound(sound) {
-    if (isSoundEnabled) {
-        sound.play();
-    }
+async function playSound(url) {
+    if (!isSoundEnabled) return;
+
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const response = await fetch(url);
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+    const source = audioContext.createBufferSource();
+    source.buffer = audioBuffer;
+    source.connect(audioContext.destination);
+    source.start(0);
 }
 
 function shuffleArray(array) {
@@ -116,10 +120,10 @@ function checkSelection() {
         });
 
         if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(correctAnswers)) {
-            playSound(correctSound);
+            playSound("./assets/correct.m4a");
             score++;
         } else {
-            playSound(incorrectSound);
+            playSound("./assets/incorrect.m4a");
         }
 
         document.querySelectorAll(".quiz-options input").forEach(input => {
@@ -141,7 +145,7 @@ function nextQuestion() {
         <p>Your score: ${score} / ${questions.length}</p>
       </div>
     `;
-        playSound(doneSound);
+        playSound("./assets/done.mp3");
         document.querySelector(".next").style.display = "none";
     }
 }
