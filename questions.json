@@ -1,0 +1,18 @@
+[
+    {
+      "question": "What is the capital of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "answers": [2]
+    },
+    {
+      "question": "Which of the following are programming languages?",
+      "options": ["Python", "HTML", "CSS", "JavaScript"],
+      "answers": [0, 3]
+    },
+    {
+      "question": "What is the boiling point of water?",
+      "options": ["100°C", "90°C", "50°C", "120°C"],
+      "answers": [0]
+    }
+]
+  

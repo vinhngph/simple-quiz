@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="upload-container">
+        <h1>Upload Your Quiz JSON</h1>
+        <label for="json-upload" class="upload-label">
+            <span>📂 Choose a JSON file</span>
+            <input type="file" id="json-upload" accept=".json" />
+        </label>
+        <p>
+            Don't have a JSON file? Download a sample:
+            <a href="./questions.json" download>questions.json</a>
+        </p>
+        <p class="error-message" style="display: none;">Invalid JSON format. Please upload a valid file.</p>
+    </div>
+
+    <div class="quiz-container" style="display: none;">
+        <div id="quiz-content"></div>
+        <div class="quiz-buttons">
+            <button class="next" onclick="nextQuestion()" disabled>Next</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
