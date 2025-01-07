@@ -1,5 +1,6 @@
 const correctSound = new Audio("./assets/correct.m4a");
 const incorrectSound = new Audio("./assets/incorrect.m4a");
+const doneSound = new Audio("./assets/done.opus");
 
 let isSoundEnabled = true;
 
@@ -140,6 +141,7 @@ function nextQuestion() {
         <p>Your score: ${score} / ${questions.length}</p>
       </div>
     `;
+        playSound(doneSound);
         document.querySelector(".next").style.display = "none";
     }
 }
