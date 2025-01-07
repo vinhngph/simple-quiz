@@ -1,6 +1,6 @@
 const correctSound = new Audio("./assets/correct.m4a");
 const incorrectSound = new Audio("./assets/incorrect.m4a");
-const doneSound = new Audio("./assets/done.opus");
+const doneSound = new Audio("./assets/done.mp3");
 
 let isSoundEnabled = true;
 
