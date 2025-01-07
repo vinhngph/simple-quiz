@@ -73,6 +73,7 @@ function showQuestion() {
     const quizContent = document.getElementById("quiz-content");
     const question = questions[currentQuestionIndex];
     quizContent.innerHTML = `
+    <p>${currentQuestionIndex + 1} / ${questions.length}</p>
     <div class="quiz-question">
       <p>${question.question}</p>
       <ul class="quiz-options">
