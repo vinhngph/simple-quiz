@@ -1,3 +1,11 @@
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 let currentQuestionIndex = 0;
 let questions = [];
 let score = 0;
@@ -15,7 +23,7 @@ function handleFileUpload(event) {
                 const parsedQuestions = JSON.parse(e.target.result);
 
                 if (validateQuestions(parsedQuestions)) {
-                    questions = parsedQuestions;
+                    questions = shuffleArray(parsedQuestions);
                     document.querySelector(".upload-container").style.display = "none";
                     document.querySelector(".quiz-container").style.display = "block";
                     showQuestion();
