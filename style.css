@@ -181,3 +181,17 @@ body {
 .upload-container a:hover {
     text-decoration: underline;
 }
+
+#sound-toggle {
+    background-color: #555555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#sound-toggle:hover {
+    background-color: #0056b3;
+}

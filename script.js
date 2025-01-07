@@ -1,5 +1,18 @@
-const correctSound = new Audio("./assets/correct.m4a")
-const incorrectSound = new Audio("./assets/incorrect.m4a")
+const correctSound = new Audio("./assets/correct.m4a");
+const incorrectSound = new Audio("./assets/incorrect.m4a");
+
+let isSoundEnabled = true;
+
+document.getElementById("sound-toggle").addEventListener("click", function () {
+    isSoundEnabled = !isSoundEnabled;
+    this.textContent = isSoundEnabled ? "🔊 Sound: ON" : "🔇 Sound: OFF";
+});
+
+function playSound(sound) {
+    if (isSoundEnabled) {
+        sound.play();
+    }
+}
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -101,10 +114,10 @@ function checkSelection() {
         });
 
         if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(correctAnswers)) {
-            correctSound.play();
+            playSound(correctSound);
             score++;
         } else {
-            incorrectSound.play();
+            playSound(incorrectSound);
         }
 
         document.querySelectorAll(".quiz-options input").forEach(input => {
