@@ -19,18 +19,30 @@
             Don't have a JSON file? Download a sample:
             <a href="./questions.json" download>questions.json</a>
         </p>
-        <p class="error-message" style="display: none;">Invalid JSON format. Please upload a valid file.</p>
+        <p class="error-message" style="display: none;"></p>
     </div>
 
-    <div class="quiz-container" style="display: none;">
+    <div class="quiz-stored">
+        <ul class="quiz-list"></ul>
+        <p class="list-empty">Quiz list is empty!</p>
+    </div>
+
+    <div class="quiz-container hidden">
+        <button class="btn-close" onclick="closeQuiz()">X</button>
         <div id="quiz-content"></div>
         <div class="quiz-buttons">
-            <button class="next" onclick="nextQuestion()" disabled>Next</button>
+            <button class="btn-next" onclick="nextQuestion()">Next</button>
+            <button class="btn-done" onclick="closeQuiz()">Done</button>
         </div>
         <div class="sound-control">
-            <button id="sound-toggle">🔊 Sound: ON</button>
+            <button id="sound-toggle" onclick="handleSoundEffects()">🔊 Sound: ON</button>
         </div>
     </div>
+
+    <!-- Copyright section -->
+    <footer class="footer">
+        <p>© 2025 Simple Quiz. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
