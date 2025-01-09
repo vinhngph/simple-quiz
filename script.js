@@ -92,7 +92,7 @@ const addList = (id, name) => {
     deleteButton.className = "btn-delete-quiz";
     deleteButton.value = id;
     deleteButton.textContent = "DELETE";
-    deleteButton.onclick = () => deleteQuiz(id);
+    deleteButton.onclick = () => deleteQuiz(id, name);
     buttonsContainer.appendChild(deleteButton);
 
     quizli.appendChild(buttonsContainer);
@@ -222,8 +222,8 @@ const nextQuestion = () => {
 }
 // --------------------------------------------------------------------------------------
 
-const deleteQuiz = (quizID) => {
-    if (confirm("Are you sure you want to delete this quiz?")) {
+const deleteQuiz = (quizID, quizName) => {
+    if (confirm(`Are you sure you want to delete ${quizName}?`)) {
         localStorage.removeItem(quizID);
 
         let quizzes = JSON.parse(localStorage.getItem("list_name"));
@@ -316,7 +316,7 @@ const loadQuizStored = () => {
         deleteButton.className = "btn-delete-quiz";
         deleteButton.value = quizID;
         deleteButton.textContent = "DELETE";
-        deleteButton.onclick = () => deleteQuiz(quizID);
+        deleteButton.onclick = () => deleteQuiz(quizID, quizName);
 
         buttonsContainer.appendChild(quizlibutton);
         buttonsContainer.appendChild(deleteButton);
