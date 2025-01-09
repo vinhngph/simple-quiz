@@ -27,29 +27,31 @@ const playSound = (sound) => {
 /**
  * Uploading JSON file
  */
-document.getElementById("json-upload").addEventListener("change", (e) => {
-    const file = e.target.files[0];
+document.getElementById("json-upload").addEventListener("change", (changeEvent) => {
+    const files = changeEvent.target.files;
 
-    if (!file) return;
+    if (!files || files.length === 0) return;
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-        try {
-            const parsedQuiz = JSON.parse(e.target.result);
-            if (validateQuestions(parsedQuiz)) {
-                const id = "quiz_" + Date.now();
-                localStorage.setItem(id, JSON.stringify(parsedQuiz));
-                addQuizName(id, file.name);
-                addList(id, file.name);
-            } else {
+    Array.from(files).forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = (loadEvent) => {
+            try {
+                const parsedQuiz = JSON.parse(loadEvent.target.result);
+                if (validateQuestions(parsedQuiz)) {
+                    const id = "quiz_" + Date.now();
+                    localStorage.setItem(id, JSON.stringify(parsedQuiz));
+                    addQuizName(id, file.name);
+                    addList(id, file.name);
+                } else {
+                    showError("Invalid JSON format. Please upload a valid file.");
+                }
+            } catch (error) {
                 showError("Invalid JSON format. Please upload a valid file.");
-            }
-        } catch (error) {
-            showError("Invalid JSON format. Please upload a valid file.");
-        }
-    }
 
-    reader.readAsText(file);
+            }
+        }
+        reader.readAsText(file);
+    })
 })
 const validateQuestions = (data) => {
     return Array.isArray(data) && data.every(q =>
