@@ -191,7 +191,6 @@ body {
     width: 90%;
     max-width: 500px;
     margin-top: 0;
-    /* Removed top margin */
     background: #ffffff;
     padding: 20px;
     border-radius: 10px;
@@ -215,6 +214,19 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     min-height: 50px;
     height: 50px;
+}
+
+.quiz-list li p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 320px;
+    display: inline-block;
+}
+
+.quiz-list li input {
+    width: 310px;
+    height: 30px;
 }
 
 .quiz-list li:last-child {
