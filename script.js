@@ -38,7 +38,7 @@ document.getElementById("json-upload").addEventListener("change", (changeEvent) 
             try {
                 const parsedQuiz = JSON.parse(loadEvent.target.result);
                 if (validateQuestions(parsedQuiz)) {
-                    const id = "quiz_" + Date.now();
+                    const id = "quiz_" + crypto.randomUUID();
                     localStorage.setItem(id, JSON.stringify(parsedQuiz));
                     addQuizName(id, file.name);
                     addList(id, file.name);
@@ -224,14 +224,13 @@ const nextQuestion = () => {
 
 const deleteQuiz = (quizID) => {
     if (confirm("Are you sure you want to delete this quiz?")) {
-        // Remove from localStorage
         localStorage.removeItem(quizID);
 
         let quizzes = JSON.parse(localStorage.getItem("list_name"));
-        quizzes = quizzes.filter((quiz) => quiz.id !== quizID)
+        quizzes = quizzes.filter((quiz) => quiz.id !== quizID);
 
         if (quizzes.length === 0) {
-            localStorage.removeItem("list_name")
+            localStorage.removeItem("list_name");
         } else {
             localStorage.setItem("list_name", JSON.stringify(quizzes));
         }
