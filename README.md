@@ -53,11 +53,6 @@ To use this application, your JSON file should follow the structure below:
 ```json
 [
     {
-        "question": "What is the capital of France? (Single choice)",
-        "options": ["Berlin", "Madrid", "Paris", "Rome"],
-        "answers": [2]
-    },
-    {
         "question": "Which of the following are programming languages? (Multiple choice)",
         "options": ["Python", "HTML", "CSS", "JavaScript"],
         "answers": [0, 3]
