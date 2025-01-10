@@ -42,7 +42,7 @@ Follow these steps to set up Simple Quiz locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/vinhngph/simple-quiz.git
-   cd quizmaster
+   cd simple-quiz
 
 ---
 
