@@ -31,7 +31,7 @@ Simple Quiz is a lightweight and user-friendly web application designed to strea
 
 ## Demo
 
-Check out a live demo of QuizMaster here: [https://vinhngph.github.io/simple-quiz/](#)
+Check out a live demo of Simple Quiz here: [https://vinhngph.github.io/simple-quiz/](#)
 
 ---
 
