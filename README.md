@@ -5,7 +5,7 @@
 
 > **Create and take quizzes quickly by simply uploading a JSON file!**
 
-Simple Quiz is a lightweight and user-friendly web application designed to streamline the process of creating quizzes. Just upload a JSON file, and you can instantly generate a fully functional quiz. With features like result tracking and file management, QuizMaster is the perfect tool for educators, students, or anyone who needs a fast and flexible quiz solution.
+Simple Quiz is a lightweight and user-friendly web application designed to streamline the process of creating quizzes. Just upload a JSON file, and you can instantly generate a fully functional quiz. With features like result tracking and file management, Simple Quiz is the perfect tool for educators, students, or anyone who needs a fast and flexible quiz solution.
 
 ---
 
