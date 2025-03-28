@@ -72,6 +72,14 @@ body {
     border-color: #66bb6a;
 }
 
+.quiz-options label.true-choice {
+    background: #add8e6;
+    border-color: #90caf9;
+    box-shadow: 0 0 10px rgba(144, 202, 249, 0.5);
+    transform: scale(1.02);
+    color: #000000;
+}
+
 .quiz-options label.incorrect {
     background: #ffcccb !important;
     color: #000000;

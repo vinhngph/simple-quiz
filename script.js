@@ -11,6 +11,8 @@ let currentQuestionIndex = 0;
 let questions = [];
 let score = 0;
 
+let works = [] // Store user works
+
 // Handle sound effects
 const handleSoundEffects = () => {
     isSoundEnabled = !isSoundEnabled;
@@ -190,6 +192,7 @@ const checkSelection = () => {
             }
         });
 
+        works.push({ ...question, "work": selectedOptions.sort() });
         if (JSON.stringify(selectedOptions.sort()) === JSON.stringify(correctAnswers)) {
             playSound(correctSound);
             score++;
@@ -209,15 +212,74 @@ const nextQuestion = () => {
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
         document.getElementById("quiz-content").innerHTML = `
       <div class="quiz-summary">
         <p>Quiz completed! 🎉</p>
         <p>Your score: ${score} / ${questions.length}</p>
       </div>
     `;
+
         playSound(doneSound);
         document.querySelector(".btn-next").classList.add("hidden");
         document.querySelector(".btn-done").classList.remove("hidden");
+
+        let workResult = document.createElement("div");
+        works.forEach((work) => {
+            const card = document.createElement("div");
+            card.className = "quiz-question";
+
+            const questionTitle = document.createElement("p");
+            questionTitle.innerText = work.question;
+            card.appendChild(questionTitle);
+
+            const options = document.createElement("ul");
+            options.className = "quiz-options";
+            work.options.map((v, i) => {
+                const li = document.createElement("li");
+                const liInput = document.createElement("input");
+                liInput.type = "checkbox";
+                liInput.id = "q" + i;
+                liInput.value = i;
+                liInput.disabled = true;
+
+                const labelInput = document.createElement("label");
+                labelInput.for = "q" + i;
+                labelInput.innerText = v;
+                if (work.work.includes(i)) {
+                    if (work.answers.includes(i)) {
+                        labelInput.classList.add("correct");
+                    } else {
+                        labelInput.classList.add("incorrect");
+                    }
+                } else {
+                    if (work.answers.includes(i)) {
+                        labelInput.classList.add("true-choice");
+                    }
+                }
+
+                li.appendChild(liInput);
+                li.appendChild(labelInput);
+
+                options.appendChild(li);
+            });
+
+            card.appendChild(options);
+            workResult.appendChild(card);
+        })
+        document.getElementById("quiz-content").appendChild(workResult);
+
+
+        const allOptions = document.querySelectorAll(".quiz-options label");
+
+        allOptions.forEach(label => {
+            const value = parseInt(label.htmlFor.replace("q", ""));
+            console.log(value)
+        });
     }
 }
 // --------------------------------------------------------------------------------------
@@ -336,6 +398,7 @@ const closeQuiz = () => {
     currentQuestionIndex = 0;
     questions = [];
     score = 0;
+    works = [];
 }
 
 /**
